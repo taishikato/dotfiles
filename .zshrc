@@ -28,7 +28,7 @@ precmd () {
 RPROMPT="%1(v|%F{green}%1v%f|)"
 #alias
 alias psr='php -d include_path=/home/y/lib/php22/pear `which phpcs` --standard=PSR2'
-alias gga="log --graph --all --abbrev-commit --date=relative --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an] %C(bold blue)'"
+alias gga="git log --graph --all --abbrev-commit --date=relative --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an] %C(bold blue)'"
 alias la='ls -a'
 alias mkdir='mkdir -p'
 alias -g L='| less'
