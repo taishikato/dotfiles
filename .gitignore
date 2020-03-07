@@ -37,6 +37,7 @@
 !/.bin/
 !/.bin/**
 !/.bin.local
+!/.bin.local/**
 !/.tmux.conf
 !/.tmux/
 !/.tmux/conf/
