@@ -36,7 +36,7 @@ else
 fi
 echo '[info] put starship.toml'
 command mkdir ~/.config
-command cp ../starship.toml ~/.config/starship.toml
+command cp ./starship.toml ~/.config/starship.toml
 
 ## zsh
 if ! existsCmd zsh; then
@@ -47,7 +47,7 @@ else
   echo '[info] zsh already exists'
 fi
 echo '[info] put .zshrc'
-command cp ../.zshrc ~/
+command cp ./.zshrc ~/
 
 ## Peco
 if ! existsCmd peco; then
