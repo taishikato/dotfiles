@@ -57,3 +57,7 @@ if ! existsCmd peco; then
 else
   echo '[info] peco already exists'
 fi
+
+## Vim
+echo '[info] put .vimrc'
+command cp ./.vimrc ~/
