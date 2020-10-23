@@ -1,51 +1,59 @@
 #!/usr/bin/env bash
-set -ue
 
-helpmsg() {
-  command echo "Usage: $0 [--help | -h]" 0>&2
-  command echo ""
+## Check if command exists
+function existsCmd () {
+  type -a $1 > /dev/null 2>&1
 }
 
-link_to_homedir() {
-  command echo "backup old dotfiles..."
-  if [ ! -d "$HOME/.dotbackup" ];then
-    command echo "$HOME/.dotbackup not found. Auto Make it"
-    command mkdir "$HOME/.dotbackup"
-  fi
+## brew
+if ! existsCmd brew;
+then
+  echo '[info] brew does not exist'
+  echo '[info] install it…'
+  command /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+  echo '[info] brew already exists'
+  echo '[info] updating brew'
+  command brew update
+fi
 
-  local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-  local dotdir=$(dirname ${script_dir})
-  if [[ "$HOME" != "$dotdir" ]];then
-    for f in $dotdir/.??*; do
-      [[ `basename $f` == ".git" ]] && continue
-      if [[ -L "$HOME/`basename $f`" ]];then
-        command rm -f "$HOME/`basename $f`"
-      fi
-      if [[ -e "$HOME/`basename $f`" ]];then
-        command mv "$HOME/`basename $f`" "$HOME/.dotbackup"
-      fi
-      command ln -snf $f $HOME
-    done
-  else
-    command echo "same install src dest"
-  fi
-}
+## exa
+if ! existsCmd exa; then
+  echo '[info] exa does not exist'
+  echo '[info] install it…'
+  command brew install exa
+else
+  echo '[info] exa already exists'
+fi
 
-while [ $# -gt 0 ];do
-  case ${1} in
-    --debug|-d)
-      set -uex
-      ;;
-    --help|-h)
-      helpmsg
-      exit 1
-      ;;
-    *)
-      ;;
-  esac
-  shift
-done
+## starship
+if ! existsCmd starship; then
+  echo '[info] starship does not exist'
+  echo '[info] install it…'
+  command brew install starship
+else
+  echo '[info] starship already exists'
+fi
+echo '[info] put starship.toml'
+command mkdir ~/.config
+command cp ../starship.toml ~/.config/starship.toml
 
-link_to_homedir
-git config --global include.path "~/.gitconfig_shared"
-command echo -e "\e[1;36m Install completed!!!! \e[m"
+## zsh
+if ! existsCmd zsh; then
+  echo '[info] zsh does not exist'
+  echo '[info] install it…'
+  command brew install zsh
+else
+  echo '[info] zsh already exists'
+fi
+echo '[info] put .zshrc'
+command cp ../.zshrc ~/
+
+## Peco
+if ! existsCmd peco; then
+  echo '[info] peco does not exist'
+  echo '[info] install it…'
+  command brew install peco
+else
+  echo '[info] peco already exists'
+fi
