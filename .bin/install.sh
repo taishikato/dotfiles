@@ -8,56 +8,59 @@ function existsCmd () {
 ## brew
 if ! existsCmd brew;
 then
-  echo '[info] brew does not exist'
-  echo '[info] install it…'
+  echo '[info][brew] brew does not exist'
+  echo '[info][brew] install it…'
   command /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
-  echo '[info] brew already exists'
-  echo '[info] updating brew'
+  echo '[info][brew] brew already exists'
+  echo '[info][brew] updating brew'
   command brew update
 fi
 
 ## exa
 if ! existsCmd exa; then
-  echo '[info] exa does not exist'
-  echo '[info] install it…'
+  echo '[info][exa] exa does not exist'
+  echo '[info][exa] install it…'
   command brew install exa
 else
-  echo '[info] exa already exists'
+  echo '[info][exa] exa already exists'
 fi
 
 ## starship
 if ! existsCmd starship; then
-  echo '[info] starship does not exist'
-  echo '[info] install it…'
+  echo '[info][starship] starship does not exist'
+  echo '[info][starship] install it…'
   command brew install starship
 else
-  echo '[info] starship already exists'
+  echo '[info][starship] starship already exists'
 fi
-echo '[info] put starship.toml'
+echo '[info][starship] deploy file'
 command mkdir ~/.config
-command cp ./starship.toml ~/.config/starship.toml
+command cp ./files/.config/starship.toml ~/.config/
+
 
 ## zsh
 if ! existsCmd zsh; then
-  echo '[info] zsh does not exist'
-  echo '[info] install it…'
+  echo '[info][zsh] zsh does not exist'
+  echo '[info][zsh] install it…'
   command brew install zsh
 else
-  echo '[info] zsh already exists'
+  echo '[info][zsh] zsh already exists'
 fi
-echo '[info] put .zshrc'
-command cp ./.zshrc ~/
+echo '[info][vim] deploy .zshrc'
+command cp ./files/.zshrc ~/
 
 ## Peco
 if ! existsCmd peco; then
-  echo '[info] peco does not exist'
-  echo '[info] install it…'
+  echo '[info][peco] peco does not exist'
+  echo '[info][peco] install it…'
   command brew install peco
 else
-  echo '[info] peco already exists'
+  echo '[info][peco] peco already exists'
 fi
 
-## Vim
-echo '[info] put .vimrc'
-command cp ./.vimrc ~/
+## vim
+echo '[info][vim] deploy files'
+command cp ./files/.vimrc ~/
+command mkdir -p ~/.vim/colors/
+command cp ./files/.vim/colors/molokai.vim ~/.vim/colors/
