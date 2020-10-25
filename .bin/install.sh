@@ -17,6 +17,16 @@ else
   command brew update
 fi
 
+## nodebrew
+if ! existsCmd nodebrew;
+then
+  echo '[info][nodebrew] does not exist'
+  echo '[info][nodebrew] install it…'
+  command brew install nodebrew
+else
+  echo '[info][nodebrew] already exists. skip.'
+fi
+
 ## exa
 if ! existsCmd exa; then
   echo '[info][exa] exa does not exist'
@@ -64,3 +74,7 @@ echo '[info][vim] deploy files'
 command cp ./files/.vimrc ~/
 command mkdir -p ~/.vim/colors/
 command cp ./files/.vim/colors/molokai.vim ~/.vim/colors/
+
+## Load files
+echo '[info][files] load files'
+command source ~/.zshrc
