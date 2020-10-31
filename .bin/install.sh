@@ -27,6 +27,15 @@ else
   echo '[info][nodebrew] already exists. skip.'
 fi
 
+## git
+if ! existsCmd git; then
+  echo '[info][git] does not exist'
+  echo '[info][git] install it…'
+  command brew install git
+else
+  echo '[info][git] already exists'
+fi
+
 ## exa
 if ! existsCmd exa; then
   echo '[info][exa] exa does not exist'
