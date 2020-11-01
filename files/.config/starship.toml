@@ -50,7 +50,7 @@ $status\
 $character"""
 
 [character]
-success_symbol = "\n[➜](bold green)"
+format = "\n[➜](bold green) "
 
 [line_break]
 disabled = true
