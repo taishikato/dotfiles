@@ -44,6 +44,8 @@ command cp ./files/.config/starship.toml ~/.config/
 ## zsh
 command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][zsh] deploy .zshrc"
 command cp ./files/.zshrc ~/
+command chsh -s /bin/zsh
+command source ~/.zshrc
 
 ## vim
 command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][vim] deploy files"
