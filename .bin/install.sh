@@ -28,8 +28,8 @@ do
   if ! existsCmd $v;
   then
     command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] does not exist"
-    command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] installing it…"
-    command brew cask install $v
+    command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] installing it..."
+    command brew install $v
   else
     command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] already exists"
   fi
