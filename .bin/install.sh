@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 dir=`dirname $0`
 . ${dir}/mac-apps.sh
