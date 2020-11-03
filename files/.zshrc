@@ -9,19 +9,6 @@ compinit
 #ディレクトリ名だけでcdする
 setopt auto_cd
 
-PROMPT='[%F{green}%T%f %F{white}%n@%M%f %F{3}%~%f ]
--> $ '
-# git theming
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-        psvar=()
-        LANG=en_US.UFT-8 vcs_info
-        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
-
 export PATH="/Applications/MAMP/bin/php/php5.6.10/bin:$PATH"
 export PATH="$PATH:`pwd`/flutter/bin"
 
