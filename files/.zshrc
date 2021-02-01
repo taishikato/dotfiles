@@ -13,6 +13,7 @@ export PATH="/Applications/MAMP/bin/php/php5.6.10/bin:$PATH"
 export PATH="$PATH:`pwd`/flutter/bin"
 
 ## alias設定
+alias g='git'
 alias gs='git status'
 alias gc='git checkout'
 alias gcb='git checkout -b'

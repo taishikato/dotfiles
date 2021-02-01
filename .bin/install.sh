@@ -16,7 +16,7 @@ if ! existsCmd brew;
 then
   command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][brew] does not exist"
   command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][brew] install it..."
-  command /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  command /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][brew] already exists"
   command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][brew] updating brew..."
