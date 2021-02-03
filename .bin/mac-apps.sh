@@ -17,13 +17,9 @@ function installApps () {
     then
       command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] does not exist"
       command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] installing it…"
-      command brew install --cask $v &
+      command brew install --cask $v
     else
       command printf "${ESC}[${GREEN}%s${ESC}[m\n" "[info][$v] already exists"
     fi
   done
-
-  command wait
-
-  command echo "Info: done"
 }
